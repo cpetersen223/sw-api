@@ -1,0 +1,8 @@
+development:
+  DATABASE_USERNAME: developer
+  DATABASE_PASSWORD: secure_password
+  DATABASE_HOST: localhost
+test:
+  DATABASE_USERNAME: developer
+  DATABASE_PASSWORD: secure_password
+  DATABASE_HOST: localhost
