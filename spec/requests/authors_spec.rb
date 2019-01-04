@@ -5,6 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Authors', type: :request do
   let!(:authors) { create_list(:author, 10) }
   let(:author) { authors.first }
+  let(:author_id) { author.id }
 
   describe 'GET /api/v1/authors' do
     before { get '/api/v1/authors' }
@@ -20,10 +21,9 @@ RSpec.describe 'Authors', type: :request do
   end
 
   describe 'GET /api/v1/authors/:id' do
+    before { get "/api/v1/authors/#{author_id}" }
 
     context 'when the record exists' do
-      before { get "/api/v1/authors/#{author&.id}" }
-
       it 'returns the specific author' do
         expect(json).not_to be_empty
         expect(json['name']).to eq(author.name)
@@ -35,17 +35,14 @@ RSpec.describe 'Authors', type: :request do
     end
 
     context 'when the record does not exist' do
-      before do
-        @author_id = Author.last.id + 1
-        get "/api/v1/authors/#{@author_id}"
-      end
+      let(:author_id) { authors.last.id + 1 }
 
       it 'returns status code 404' do
         expect(response).to have_http_status(404)
       end
 
       it 'returns a not found message' do
-        expect(response.body).to match(/Couldn't find Author with 'id'=#{@author_id}/)
+        expect(response.body).to match(/Couldn't find Author with 'id'=#{author_id}/)
       end
     end
   end
