@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Api Version 1
 module V1
   # Main super class of the Version 1

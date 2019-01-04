@@ -1,5 +1,5 @@
-# V1::AuthorsControllers
 module V1
+  # V1::AuthorsControllers
   class AuthorsController < ::V1::MainController
     before_action :set_author, only: [:show, :update, :destroy]
 

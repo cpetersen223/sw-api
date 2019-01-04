@@ -1,24 +1,62 @@
-# README
+SW API
+========
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby version
+-----
 
-Things you may want to cover:
+```bash
+ruby 2.4.4
+```
 
-* Ruby version
+Rails version
+-----
 
-* System dependencies
+```bash
+rails 2.5.2
+```
 
-* Configuration
+Database version tested
+-------
+Mysql ver 14.14 Dist 5.7.24 for Linux (x86_64) using EditLine wrapper
 
-* Database creation
+Important Dependencies
+-------
+* Mysql2
+* For dev: Annotate
+* For test: RSpec, Factory Bot, Faker, DatabaseCleaner, 
+Shoulda Matchers, Rails Controllers Testing
 
-* Database initialization
+Development
+-------
+First create an environment_variables.yml file
 
-* How to run the test suite
+```bash
+mv environment_variables.example.yml environment_variables.yml
+```
+Then, substitute all the values of the variables
 
-* Services (job queues, cache servers, search engines, etc.)
+Install dependencies
+```bash
+bundle install
+```
 
-* Deployment instructions
+Setup the database
+```bash
+bundle exec rails db:create db:migrate db:seed
+```
 
-* ...
+Init the server
+```bash
+bundle exec rails s
+```
+
+Running tests
+-------
+
+```bash
+bundle exec rspec
+```
+
+Deployment instructions
+-------
+Todo...

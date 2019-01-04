@@ -1,4 +1,5 @@
-# spec/requests/authors
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Authors', type: :request do
@@ -34,14 +35,17 @@ RSpec.describe 'Authors', type: :request do
     end
 
     context 'when the record does not exist' do
-      before { get "/api/v1/authors/#{Author.last.id + 1}" }
+      before do
+        @author_id = Author.last.id + 1
+        get "/api/v1/authors/#{@author_id}"
+      end
 
       it 'returns status code 404' do
         expect(response).to have_http_status(404)
       end
 
       it 'returns a not found message' do
-        expect(response.body).to match(/Couldn't find Author/)
+        expect(response.body).to match(/Couldn't find Author with 'id'=#{@author_id}/)
       end
     end
   end
