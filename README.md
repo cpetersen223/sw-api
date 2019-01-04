@@ -24,7 +24,7 @@ Important Dependencies
 * Mysql2
 * For dev: Annotate
 * For test: RSpec, Factory Bot, Faker, DatabaseCleaner, 
-Shoulda Matchers, Rails Controllers Testing
+Shoulda Matchers, Rails Controllers Testing, Simple Coverage
 
 Development
 -------
