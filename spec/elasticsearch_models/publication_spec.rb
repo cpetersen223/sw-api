@@ -12,8 +12,10 @@
 #  updated_at :datetime         not null
 #
 
-class Publication < ApplicationRecord
-  include Elasticsearch::Model
-  belongs_to :author
-  validates :title, :body, :date, :time, presence: true
+require 'rails_helper'
+
+RSpec.describe Publication, elasticsearch: true do
+  it 'should be indexed' do
+    expect(described_class.__elasticsearch__.index_exists?).to be_truthy
+  end
 end

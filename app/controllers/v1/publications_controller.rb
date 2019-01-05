@@ -6,7 +6,8 @@ module V1
 
     def index
       @publications = Publication.order(date: :desc)
-      json_response @publications
+      paginated_json_response @publications,
+                              each_serializer: V1::PublicationSerializer
     end
 
     def show

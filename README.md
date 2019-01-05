@@ -19,10 +19,38 @@ Database version tested
 -------
 Mysql ver 14.14 Dist 5.7.24 for Linux (x86_64) using EditLine wrapper
 
+Elasticsearch Requirements
+------
+
+###### For development
+```bash
+docker pull elasticsearch:6.5.4
+```
+
+```bash
+ docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:6.5.4
+```
+
+* Java JDK-8 (min)
+* Elasticsearch installed
+* Address of the running environment of elasticsearch
+``` bash
+mv 
+```
+* Copy/Paste the elasticsearch.yml
+
+###### For production
+* Java JDK-8 (min)
+* Elasticsearch installed
+
+    or (recommended)
+    
+* Address of an ElasticSearch environment on AWS
+
 Important Dependencies
 -------
 * Mysql2
-* For dev: Annotate
+* For dev: Annotate, ElasticSearch
 * For test: RSpec, Factory Bot, Faker, DatabaseCleaner, 
 Shoulda Matchers, Rails Controllers Testing, Simple Coverage
 

@@ -30,12 +30,19 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Serialize the model instances
 gem 'active_model_serializers', '~> 0.10.0'
+# Will paginate for pagination
+gem 'will_paginate'
+# Api pagination for pages info included on de header
+gem 'api-pagination'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
+  # Search engine with steroids
+  gem 'elasticsearch-model'
+  gem 'elasticsearch-rails'
 end
 
 group :development do
@@ -52,6 +59,7 @@ group :test do
   gem 'faker'
   gem 'database_cleaner'
   gem 'simplecov', require: false
+  gem 'elasticsearch-extensions'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
