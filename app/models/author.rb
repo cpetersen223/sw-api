@@ -11,6 +11,6 @@
 #
 
 class Author < ApplicationRecord
-  has_many :publications, dependent: :destroy
+  has_many :publications, -> { order(date: :desc) }, dependent: :destroy
   validates :name, :email, :birth_date, presence: true
 end

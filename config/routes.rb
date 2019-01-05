@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   scope '/api' do
     namespace :v1 do
-      resources :authors do
-        resources :publications
+      shallow do
+        resources :authors do
+          resources :publications, except: :index
+        end
+        get 'publications', to: 'publications#index'
       end
     end
   end
