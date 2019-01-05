@@ -50,6 +50,9 @@ RSpec.configure do |config|
   # Spec Helpers included on RSpec request type
   config.include RequestSpecHelper, type: :request
 
+  # Active Model Serializer Adapter included on RSpec serializer type
+  config.include ActiveModelSerializers::Adapter, type: :serializer
+
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.

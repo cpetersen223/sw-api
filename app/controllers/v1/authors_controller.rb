@@ -1,24 +1,24 @@
 module V1
   # V1::AuthorsControllers
   class AuthorsController < ::V1::MainController
-    before_action :set_author, only: [:show, :update, :destroy]
+    before_action :set_author, only: %i[show update destroy]
 
     def index
       @authors = Author.all
-      json_response(@authors)
+      json_response @authors, each_serializer: V1::AuthorsSerializer
     end
 
     def create
       @author = Author.create!(author_params)
-      json_response(@author, :created)
+      json_response @author, :created
     end
 
     def show
-      json_response(@author)
+      json_response @author
     end
 
     def update
-      @author.update(author_params)
+      @author.update!(author_params)
       head :no_content
     end
 

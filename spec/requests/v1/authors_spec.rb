@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Authors', type: :request do
+RSpec.describe 'V1::Authors', type: :request do
   let!(:authors) { create_list(:author, 10) }
   let(:author) { authors.first }
   let(:author_id) { author.id }

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Publications' do
+RSpec.describe 'V1::Publications', type: :request do
   let!(:author) { create(:author) }
   let!(:publications) { create_list(:publication, 20, author_id: author.id) }
   let(:author_id) { author.id }
@@ -44,7 +44,7 @@ RSpec.describe 'Publications' do
       end
 
       it 'returns the publication' do
-        expect(json['id']).to eq(publication_id)
+        expect(json['title']).to eq(publication.title)
       end
     end
 

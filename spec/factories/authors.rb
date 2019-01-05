@@ -15,5 +15,15 @@ FactoryBot.define do
     name        { Faker::Name.name }
     email       { Faker::Internet.safe_email }
     birth_date  { Faker::Date.birthday }
+
+    factory :author_with_publications do
+      transient do
+        count { 5 }
+      end
+
+      after(:create) do |author, evaluator|
+        create_list(:publication, evaluator.count, author: author)
+      end
+    end
   end
 end
