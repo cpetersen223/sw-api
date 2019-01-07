@@ -13,7 +13,7 @@ production:
   ELASTICSEARCH_URL: http://localhost:9200
 deployment:
   APP_NAME: SwApi
-  DEPLOY_USER: cpetersen
-  DEPLOY_HOST: http://181.46.39.229
-  DEPLOY_PASS: admeqpcpet1010
+  DEPLOY_USER:
+  DEPLOY_HOST:
+  DEPLOY_PASS:
   DEPLOY_URL: git@github.com:cpetersen223/sw-api.git

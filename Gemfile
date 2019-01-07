@@ -46,7 +46,7 @@ end
 
 group :development, :deployment do
   # Capistrano for Deployments
-  gem "capistrano", "~> 3.11", require: false
+  gem 'capistrano', '~> 3.11', require: false
   gem 'capistrano-rvm'
   gem 'capistrano-rails'
   gem 'capistrano-yarn'
