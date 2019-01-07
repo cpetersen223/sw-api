@@ -12,6 +12,6 @@ RSpec.describe V1::AuthorSerializer, type: :serializer do
   end
 
   it 'includes the expected publications attributes' do
-    expect(subject['publications'].sample.keys).to contain_exactly('title', 'body', 'date', 'time')
+    expect(subject['publications'].sample.keys).to contain_exactly('title', 'body', 'created_at')
   end
 end

@@ -15,8 +15,6 @@ require 'faker'
   10.times do
     p "--- Creating publications of author: #{author.name} ---"
     author.publications.create(title: Faker::Book.title,
-                               body: Faker::Lorem.paragraph,
-                               date: Faker::Date.between(Date.today - 65.years, Date.today),
-                               time: Faker::Time.backward)
+                               body: Faker::Lorem.paragraph)
   end
 end

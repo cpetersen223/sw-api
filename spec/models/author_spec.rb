@@ -15,7 +15,7 @@ require 'rails_helper'
 RSpec.describe Author, type: :model do
   # Association test
   # ensure Author model has a 1:m relationship with the Publication model
-  it { should have_many(:publications).order(date: :desc).dependent(:destroy) }
+  it { should have_many(:publications).order(created_at: :desc).dependent(:destroy) }
   # Validation tests
   # ensure columns name, email and birth_date are present before saving
   it { should validate_presence_of(:name) }

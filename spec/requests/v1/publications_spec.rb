@@ -50,7 +50,7 @@ RSpec.describe 'V1::Publications', type: :request do
   describe 'POST /authors/:author_id/publications' do
     let!(:author) { create(:author) }
     let(:author_id) { author.id }
-    let(:valid_attributes) { { title: 'Some title', body: 'Some body', date: Date.today, time: Time.now } }
+    let(:valid_attributes) { { title: 'Some title', body: 'Some body' } }
 
     context 'when request attributes are valid' do
       before { post "/api/v1/authors/#{author_id}/publications", params: valid_attributes }

@@ -30,11 +30,19 @@ module V1
     private
 
     def author_params
-      params.permit(:name, :email, :birth_date)
+      parameters = params.permit(:name,
+                                 :email,
+                                 :birth_date,
+                                 publications:
+                                    %i[body title])
+      if parameters.key? :publications
+        parameters[:publications_attributes] = parameters.delete :publications
+      end
+      parameters.permit!
     end
 
     def set_author
-      @author = Author.find(params[:id])
+      @author = Author.includes(:publications).find(params[:id])
     end
   end
 end

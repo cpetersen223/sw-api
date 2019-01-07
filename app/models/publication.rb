@@ -13,8 +13,9 @@
 #
 
 class Publication < ApplicationRecord
-  belongs_to :author
-  validates :title, :body, :date, :time, presence: true
+  belongs_to :author, optional: true
+  validates :title, :body, presence: true
+  alias_attribute :date, :created_at
 
   searchkick
 
@@ -25,6 +26,6 @@ class Publication < ApplicationRecord
   end
 
   def self.ordered
-    order date: :desc
+    order created_at: :desc
   end
 end

@@ -16,8 +16,6 @@ FactoryBot.define do
   factory :publication do
     title   { Faker::Book.title }
     body    { Faker::Lorem.paragraph }
-    date    { Faker::Date.between(Date.today - 65.years, Date.today) }
-    time    { Faker::Time.backward }
     author
 
     trait :reindex do

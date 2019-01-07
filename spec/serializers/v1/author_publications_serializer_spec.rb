@@ -8,6 +8,6 @@ RSpec.describe V1::AuthorPublicationsSerializer, type: :serializer do
   let(:subject) { JSON.parse(serialization.to_json) }
 
   it 'includes the expected publication attributes' do
-    expect(subject.keys).to contain_exactly('body', 'date', 'time', 'title')
+    expect(subject.keys).to contain_exactly('body', 'title', 'created_at')
   end
 end

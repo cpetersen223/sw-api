@@ -11,6 +11,7 @@
 #
 
 class Author < ApplicationRecord
-  has_many :publications, -> { order(date: :desc) }, dependent: :destroy
+  has_many :publications, -> { order(created_at: :desc) }, dependent: :destroy
   validates :name, :email, :birth_date, presence: true
+  accepts_nested_attributes_for :publications
 end
