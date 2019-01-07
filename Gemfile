@@ -41,8 +41,15 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
   # Search engine with steroids
-  gem 'elasticsearch-model'
-  gem 'elasticsearch-rails'
+  gem 'searchkick'
+end
+
+group :development, :deployment do
+  # Capistrano for Deployments
+  gem "capistrano", "~> 3.11", require: false
+  gem 'capistrano-rvm'
+  gem 'capistrano-rails'
+  gem 'capistrano-yarn'
 end
 
 group :development do

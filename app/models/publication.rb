@@ -13,7 +13,18 @@
 #
 
 class Publication < ApplicationRecord
-  include Elasticsearch::Model
   belongs_to :author
   validates :title, :body, :date, :time, presence: true
+
+  searchkick
+
+  def self.search_for(string)
+    return search(string)&.results if string
+
+    ordered
+  end
+
+  def self.ordered
+    order date: :desc
+  end
 end

@@ -1,0 +1,19 @@
+development:
+  DATABASE_USERNAME: user
+  DATABASE_PASSWORD: secure_password
+  DATABASE_HOST: localhost
+test:
+  DATABASE_USERNAME: user
+  DATABASE_PASSWORD: secure_password
+  DATABASE_HOST: localhost
+production:
+  DATABASE_USERNAME: user
+  DATABASE_PASSWORD: secure_password
+  DATABASE_HOST: http://host:port
+  ELASTICSEARCH_URL: http://host:port
+deployment:
+  APP_NAME: SwApi
+  DEPLOY_USER: user
+  DEPLOY_HOST: host
+  DEPLOY_PASS: password
+  DEPLOY_URL: git@github.com:cpetersen223/sw-api.git

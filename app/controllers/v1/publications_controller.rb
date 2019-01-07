@@ -5,8 +5,8 @@ module V1
     before_action :set_publication, only: %i[show update destroy]
 
     def index
-      @publications = Publication.order(date: :desc)
-      paginated_json_response @publications,
+      publications = Publication.search_for search_string
+      paginated_json_response publications,
                               each_serializer: V1::PublicationSerializer
     end
 
@@ -30,6 +30,10 @@ module V1
     end
 
     private
+
+    def search_string
+      params[:q].presence
+    end
 
     def publication_params
       params.permit(:title, :body, :date, :time)

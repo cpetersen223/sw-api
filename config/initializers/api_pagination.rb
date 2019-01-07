@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 ApiPagination.configure do |config|
 
   config.page_param do |params|

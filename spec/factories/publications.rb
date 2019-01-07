@@ -19,5 +19,11 @@ FactoryBot.define do
     date    { Faker::Date.between(Date.today - 65.years, Date.today) }
     time    { Faker::Time.backward }
     author
+
+    trait :reindex do
+      after(:create) do |product, _evaluator|
+        product.reindex(refresh: true)
+      end
+    end
   end
 end

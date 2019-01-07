@@ -24,33 +24,31 @@ Elasticsearch Requirements
 
 ###### For development
 ```bash
-docker pull elasticsearch:6.5.4
+$ wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+$ sudo apt-get install apt-transport-https
+$ echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
+$ sudo apt-get update && sudo apt-get install elasticsearch
 ```
+
+Search for the initialization file of elasticsearch
+ 
+```bash
+ $ sudo nano /etc/elasticsearch/elasticsearch.yml
+```
+Change the line ``# network.host: 192.168.x.x`` to the uncommented ``network.host: 0.0.0.0``, then uncomment ``# http.port: 9200``
+
+Restart the elasticsearch service
 
 ```bash
- docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:6.5.4
+ $ sudo systemctl restart elasticsearch
 ```
 
-* Java JDK-8 (min)
-* Elasticsearch installed
-* Address of the running environment of elasticsearch
-``` bash
-mv 
-```
-* Copy/Paste the elasticsearch.yml
-
-###### For production
-* Java JDK-8 (min)
-* Elasticsearch installed
-
-    or (recommended)
-    
-* Address of an ElasticSearch environment on AWS
+Requires Java JDK-8 (min)
 
 Important Dependencies
 -------
 * Mysql2
-* For dev: Annotate, ElasticSearch
+* For dev: Annotate, SearchKick
 * For test: RSpec, Factory Bot, Faker, DatabaseCleaner, 
 Shoulda Matchers, Rails Controllers Testing, Simple Coverage
 
@@ -87,4 +85,4 @@ bundle exec rspec
 
 Deployment instructions
 -------
-Todo...
+Set environment variables on environment_variables.yml under the deployment key (watch environment_variables.example.yml) 
