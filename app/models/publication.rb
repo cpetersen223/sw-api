@@ -5,8 +5,6 @@
 #  id         :bigint(8)        not null, primary key
 #  title      :string(255)
 #  body       :text(65535)
-#  date       :date
-#  time       :time
 #  author_id  :bigint(8)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

@@ -87,4 +87,7 @@ Deployment instructions
 -------
 Set environment variables on environment_variables.yml under the deployment key (watch environment_variables.example.yml)
 
-###### TODO: Endpoints info -> Docs... 
+Docs
+--------
+
+`bundle exec rails s` and visit the [Api Documentation page](http://localhost:3000/api-docs)
