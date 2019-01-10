@@ -15,8 +15,8 @@ module V1
     end
 
     def create
-      @author.publications.create! publication_params
-      json_response @author, :created
+      publication = @author.publications.create! publication_params
+      json_response publication, :created
     end
 
     def update

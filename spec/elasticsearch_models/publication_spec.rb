@@ -16,8 +16,8 @@ require 'rails_helper'
 
 RSpec.describe Publication, search: true, type: :request do
 
-  let!(:publications) { create_list :publication, 10, :reindex, title: 'Title with no word' }
-  let!(:publication) { create_list :publication, 10, :reindex, title: 'Title with specific word' }
+  let!(:sample_publications) { create_list :publication, 10, :reindex, title: 'Title with no word' }
+  let!(:publications) { create_list :publication, 10, :reindex, title: 'Title with specific word' }
 
   describe 'GET publications with title params' do
     before { get '/api/v1/publications?q=specific' }

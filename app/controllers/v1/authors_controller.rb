@@ -9,8 +9,8 @@ module V1
     end
 
     def create
-      @author = Author.create!(author_params)
-      json_response @author, :created
+      author = Author.create!(author_params)
+      json_response author, :created
     end
 
     def show
