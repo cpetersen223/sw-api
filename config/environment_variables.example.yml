@@ -2,20 +2,24 @@ development:
   DATABASE_USERNAME: user
   DATABASE_PASSWORD: secure_password
   DATABASE_HOST: localhost
+  CORS_ORIGINS: host, another//host, last:host
 test:
   DATABASE_USERNAME: user
   DATABASE_PASSWORD: secure_password
   DATABASE_HOST: localhost
+  CORS_ORIGINS: http://localhost:5000
 staging:
   DATABASE_USERNAME: user
   DATABASE_PASSWORD: secure_password
   DATABASE_HOST: http://host:port
   ELASTICSEARCH_URL: http://host:port
+  CORS_ORIGINS: host, another//host, last:host
 production:
   DATABASE_USERNAME: user
   DATABASE_PASSWORD: secure_password
   DATABASE_HOST: http://host:port
   ELASTICSEARCH_URL: http://host:port
+  CORS_ORIGINS: host, another//host, last:host
 deployment:
   APP_NAME: SwApi
   DEPLOY_USER: user

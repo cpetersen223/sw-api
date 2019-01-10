@@ -2,10 +2,12 @@ development:
   DATABASE_USERNAME: developer
   DATABASE_PASSWORD: secure_password
   DATABASE_HOST: localhost
+  CORS_ORIGINS: http://localhost:5000
 test:
   DATABASE_USERNAME: developer
   DATABASE_PASSWORD: secure_password
   DATABASE_HOST: localhost
+  CORS_ORIGINS: http://localhost:5000
 production:
   DATABASE_USERNAME: developer
   DATABASE_PASSWORD: secure_password

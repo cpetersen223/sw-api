@@ -15,11 +15,6 @@
 require 'rails_helper'
 
 RSpec.describe Publication, search: true, type: :request do
-  # it 'searches' do
-  #   create(:publication, title: 'Some title here')
-  #   Publication.search_index.refresh
-  #   expect(Publication.search('title').map(&:title)).to eq(['Some title here'])
-  # end
 
   let!(:publications) { create_list :publication, 10, :reindex, title: 'Title with no word' }
   let!(:publication) { create_list :publication, 10, :reindex, title: 'Title with specific word' }

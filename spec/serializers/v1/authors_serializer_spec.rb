@@ -8,6 +8,6 @@ RSpec.describe V1::AuthorsSerializer, type: :serializer do
   let(:subject) { JSON.parse(serialization.to_json) }
 
   it 'includes the expected authors attributes' do
-    expect(subject.keys).to contain_exactly('name', 'email', 'birth_date')
+    expect(subject.keys).to contain_exactly('id', 'name', 'email', 'birth_date')
   end
 end
