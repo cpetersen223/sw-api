@@ -42,11 +42,14 @@
       "post": {
         "summary": "Creates an author",
         "tags": [
-          "Author"
+          "Authors"
         ],
         "consumes": [
           "application/json",
           "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
         ],
         "parameters": [
           {
@@ -105,7 +108,7 @@
       "get": {
         "summary": "Retrieves an author",
         "tags": [
-          "Author"
+          "Authors"
         ],
         "produces": [
           "application/json"
@@ -140,6 +143,85 @@
                 "email"
               ]
             }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Updates an author",
+        "tags": [
+          "Authors"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "birth_date": {
+                  "type": "string",
+                  "format": "DD-MM-YYYY"
+                },
+                "publications": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "body": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "body"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes an author",
+        "tags": [
+          "Authors"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No content"
           },
           "404": {
             "description": "Not found"

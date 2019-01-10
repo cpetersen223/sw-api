@@ -22,8 +22,9 @@ describe 'Authors API' do
 
   path '/api/v1/authors' do
     post 'Creates an author' do
-      tags 'Author'
+      tags 'Authors'
       consumes 'application/json', 'application/x-www-form-urlencoded'
+      produces 'application/json'
       parameter name: :author,
                 in: :body,
                 schema: {
@@ -33,7 +34,7 @@ describe 'Authors API' do
                         email: { type: :string },
                         birth_date: {
                             type: :string,
-                            format: "DD-MM-YYYY"
+                            format: 'DD-MM-YYYY'
                         },
                         publications: {
                             type: :array,
@@ -63,9 +64,9 @@ describe 'Authors API' do
 
   path '/api/v1/authors/{id}' do
     get 'Retrieves an author' do
-      tags 'Author'
+      tags 'Authors'
       produces 'application/json'
-      parameter name: :id, :in => :path, :type => :string
+      parameter name: :id, in: :path, type: :string
       response '200', :OK do
         schema type: :object,
                properties: {
@@ -75,6 +76,59 @@ describe 'Authors API' do
                },
                required: %w[id name email]
 
+        let(:id) { create(:author).id }
+        run_test!
+      end
+
+      response '404', 'Not found' do
+        let(:id) { 'invalid' }
+        run_test!
+      end
+    end
+  end
+
+  path '/api/v1/authors/{id}' do
+    put 'Updates an author' do
+      tags 'Authors'
+      parameter name: :id, in: :path, type: :string
+      response '204', 'No Content' do
+        schema type: :object,
+               properties: {
+                   name: { type: :string },
+                   email: { type: :string },
+                   birth_date: {
+                       type: :string,
+                       format: 'DD-MM-YYYY'
+                   },
+                   publications: {
+                       type: :array,
+                       items: {
+                           properties: {
+                               title: { type: :string },
+                               body: { type: :string }
+                           },
+                           required: %w[title body]
+                       }
+                   }
+               }
+
+        let(:id) { create(:author).id }
+        run_test!
+      end
+
+      response '404', 'Not found' do
+        let(:id) { 'invalid' }
+        run_test!
+      end
+    end
+  end
+
+  path '/api/v1/authors/{id}' do
+    delete 'Deletes an author' do
+      tags 'Authors'
+      produces 'application/json'
+      parameter name: :id, in: :path, type: :string
+      response '204', 'No content' do
         let(:id) { create(:author).id }
         run_test!
       end

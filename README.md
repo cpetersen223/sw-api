@@ -90,4 +90,4 @@ Set environment variables on environment_variables.yml under the deployment key 
 Docs
 --------
 
-`bundle exec rails s` and visit the [Api Documentation page](http://localhost:3000/api-docs)
+`bundle exec rails s` and visit the <a href="http://localhost:3000/api-docs" target="_blank">Api Documentation page</a>

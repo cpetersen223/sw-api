@@ -12,7 +12,8 @@ require "action_view/railtie"
 require "action_cable/engine"
 # require "sprockets/railtie"
 require "rails/test_unit/railtie"
-
+# require middleware
+require './app/middleware/catch_json_parse_errors'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -32,5 +33,6 @@ module SwApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
     config.time_zone = 'Buenos Aires'
+    config.middleware.use CatchJsonParseErrors
   end
 end
